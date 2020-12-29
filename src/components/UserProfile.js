@@ -1,6 +1,6 @@
 import React from 'react';
 import './profile.css';
-import {PersonAddTwoTone} from '@material-ui/icons';
+import {PersonAdd} from '@material-ui/icons';
 
 const  UserProfile = props =>{
   return (
@@ -8,7 +8,7 @@ const  UserProfile = props =>{
       <div className = 'd-flex'>
         <div className = 'profile__image large__profile__image'></div>
         <div>
-          <div className = 'user__details mb-3 d-flex justify-content-between'>
+          <div className = 'user__details mb-2 d-flex justify-content-between'>
             <div className = 'details d-flex justify-content-between'>
               <h3 className = 'username'>Jeremiah Lena</h3>
               <div className = 'd-flex'>
@@ -20,7 +20,7 @@ const  UserProfile = props =>{
           <div className = 'faded bio'>Photographer & Filmmaker based in Copenhagen, Denmark<span role = 'img' aria-labelledby='emoji'>🎅🌍🌏</span>. Email me @ jeremiahlena13@gmail.com🌈🌈</div>
         </div>
       </div>
-      <button className = 'btn btn-primary'><PersonAddTwoTone/>Follow</button>
+      <button className = 'btn btn-primary btn-sm centered'><PersonAdd/>Follow</button>
     </div>
   )
 }

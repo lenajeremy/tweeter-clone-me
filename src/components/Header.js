@@ -1,23 +1,24 @@
 import React from 'react';
 import './header.css';
 import logo from '../tweeter.svg';
+import {Link} from 'react-router-dom';
 
 
 const Header = ({active}) => {
   return(
     <header>
       <div className = 'container-fluid justify-content-between p-3 centered px-5'>
-        <a href = '/' className = 'logoArea' alt = 'logo'>
+        <Link to = '/' className = 'logoArea' alt = 'logo'>
           <img src = {logo} alt = 'tweeter logo'/>
-        </a>
+        </Link>
         <ul className = 'header__links list-unstyled justify-content-between centered'>
-          <li><a className = 'header_link active' href = '/'>Home</a></li>
-          <li><a className = 'header_link' href = '/explore'>Explore</a></li>
-          <li><a className = 'header_link' href = '/bookmarks'>Bookmarks</a></li>
+          <li><Link className = 'header_link active' to = '/'>Home</Link></li>
+          <li><Link className = 'header_link' to = '/explore'>Explore</Link></li>
+          <li><Link className = 'header_link' to = '/bookmarks'>Bookmarks</Link></li>
         </ul>
         <div className = 'centered'>
           <div className = 'profile__image'></div>
-          <a href = '/profile' className='m-0 emphasis'>Jeremiah Lena</a> 
+          <Link to = '/profile' className='m-0 emphasis'>Jeremiah Lena</Link> 
         </div>
 
       </div>

@@ -2,10 +2,10 @@
   background:white;
   border-radius: 10px;
   margin: 0 auto;
-  width: 80%;
-  transform: translateY(-50%);
+  width: 70%;
+  transform: translateY(-30%);
   height: 150px;
-  border: 1px solid lightgray;
+  border: 1px solid rgb(235, 235, 235);
 }
 .large__profile__image{
   width: 150px!important;
@@ -15,7 +15,7 @@
   border: 3px solid white;
 }
 .large__profile__image + div{
-  max-width: 55%;
+  max-width: 65%;
   height: 100%;
 }
 .user__details{
