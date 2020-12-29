@@ -2,7 +2,7 @@ import React from 'react';
 import './header.css';
 import logo from '../tweeter.svg';
 import {Link} from 'react-router-dom';
-
+import {ArrowDropDown} from '@material-ui/icons';
 
 const Header = ({active}) => {
   return(
@@ -19,6 +19,7 @@ const Header = ({active}) => {
         <div className = 'centered'>
           <div className = 'profile__image'></div>
           <Link to = '/profile' className='m-0 emphasis'>Jeremiah Lena</Link> 
+          <ArrowDropDown/>
         </div>
 
       </div>

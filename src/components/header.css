@@ -9,7 +9,7 @@ header{
   margin: 0;
 }
 .header_link.active{
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   position: relative;
 }
 .header_link.active::after{
@@ -21,11 +21,11 @@ header{
   background: #2f80ed;
   left: 50%;
   transform: translateX(-50%);
-  bottom: -1.65rem;
+  bottom: -1.55rem;
 }
 .profile__image{
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   background: url(../profile.jpg) center;
   background-size: cover;
   border-radius: 10px;

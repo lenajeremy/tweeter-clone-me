@@ -33,7 +33,7 @@ a.main, a.active{
   background: url(bg.jpg) center;
   background-size: cover;
   width: 100%;
-  height: 270px;
+  height: 36vh;
 }
 .faded{
   color: rgb(141, 141, 141);

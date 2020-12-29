@@ -3,11 +3,12 @@
   margin: auto;
 }
 .tweets__sort{
-  width: 20%;
-  height: 180px;
-  border: 1px solid rgb(235, 235, 235);
+  width: 25%;
+  height: 200px;
+  box-shadow: 0px 3px 2px rgb(187, 183, 183);
   border-radius: 10px;
   overflow: hidden;
+  margin-right: 40px;
 }
 .tweets__sort ul{
   width: 100%;
@@ -32,7 +33,31 @@
   transform: translateY(-50%);
   left: -28px;
 }
-
 .tweets__sort a.active::before{
   left: -21px;
+}
+.tweet{
+  box-shadow: 0px 2px 2px rgb(216, 215, 215);
+  border-radius: 10px;
+  width: 100%;
+}
+.tweets{
+  flex: 1;
+}
+.tweet .profile__image{
+  width: 45px;
+  height: 45px;
+}
+.name__time{
+  display: flex;
+  height: 45px;
+  flex-direction: column;
+  margin-left: 10px;
+}
+.tweet__image{
+  width: 100%;
+height: 300px;
+border-radius: 10px;
+background-size: cover;
+background-position: center;
 }
