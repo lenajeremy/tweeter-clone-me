@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+body{
+  font-family: Poppins, sans-serif;
+}
 a:not(.active), 
 a:not(.main){
   color: #333333!important;
@@ -22,4 +25,16 @@ a.main, a.active{
 .emphasis{
   font-size: 0.95rem;
   font-weight: bolder;
+}
+.small{
+  font-size: 0.85rem;
+}
+.cover__picture{
+  background: url(bg.jpg) center;
+  background-size: cover;
+  width: 100%;
+  height: 270px;
+}
+.faded{
+  color: rgb(141, 141, 141);
 }
