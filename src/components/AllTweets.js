@@ -10,7 +10,7 @@ const Tweet =({tweet}) => {
     <React.Fragment>
       {tweet.type === 'RT' && (
         <div className = 'faded small'>
-        <Refresh/> Jeremiah Lena Retweeted
+        <Refresh/> Jeremiah Lena Retweeted*
         </div>
       )}
       <div className = 'tweet p-4 mb-5'>
