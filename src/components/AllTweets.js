@@ -1,7 +1,8 @@
 import React from 'react';
 import './tweets.css';
 import {Link } from 'react-router-dom';
-import {Refresh, ModeCommentOutlined, BookmarkBorderOutlined, FavoriteBorderOutlined} from '@material-ui/icons';
+// import {Refresh, ModeCommentOutlined, BookmarkBorderOutlined, FavoriteBorderOutlined} from '@material-ui/icons';
+import {Refresh} from '@material-ui/icons';
 import post1 from '../postimages/4.jpeg';
 import post2 from '../postimages/5.jpeg';
 
@@ -36,6 +37,7 @@ const Tweet =({tweet}) => {
   )
 }
 const AllTweets = props => {
+  //eslint-disable-next-line
   const [tweets, setTweets] = React.useState(
     [{
       content: 'Travelling - it leaves you speechless, then turns you into a storyteller.', 
