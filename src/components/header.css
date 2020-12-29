@@ -1,0 +1,33 @@
+header{
+  min-height: 60px;
+  border-bottom: 1px solid lightgray;
+  overflow: hidden;
+}
+.header__links{
+  width: 30%;
+  height: 100%;
+  margin: 0;
+}
+.header_link.active{
+  font-size: 1.2rem;
+  position: relative;
+}
+.header_link.active::after{
+  position: absolute;
+  content: '';
+  width: 130%;
+  border-radius: 10rem;
+  height: 7px;
+  background: #2f80ed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -1.8rem;
+}
+.profile__image{
+  width: 40px;
+  height: 40px;
+  background: url(../profile.jpg) center;
+  background-size: cover;
+  border-radius: 10px;
+  margin-right: 10px;
+}

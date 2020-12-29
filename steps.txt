@@ -1,0 +1,2 @@
+set up firebase authentication;
+after authenticating, set up the firestore database structure
