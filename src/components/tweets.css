@@ -44,7 +44,7 @@
 .tweets{
   flex: 1;
 }
-.tweet .profile__image{
+.tweet .profile__image, .suggestion .profile__image{
   width: 45px;
   height: 45px;
 }
@@ -60,4 +60,44 @@ height: 300px;
 border-radius: 10px;
 background-size: cover;
 background-position: center;
+}
+.tweet__comment__link button{
+  text-transform:capitalize!important;
+  font-family: inherit;
+  width: 130px;
+}
+#retweet button.active{
+  color: green;
+}
+#like button.active{
+  color:red;
+}
+#bookmarked button.active{
+  color: blue;
+}
+#comment button.active{
+  color: orange;
+}
+.tweet p{
+  font-size: 0.93rem
+}
+.trends, .following__suggestion{
+  border: 1px solid rgb(216, 215, 215);
+  border-radius: 15px;
+}
+.hashtag{
+  cursor: pointer;
+}
+.suggestion{
+  position: relative;
+}
+.suggestion:not(.last):after{
+  position: absolute;
+  content: '';
+  width: 50%;
+  height: 1px;
+  background: rgb(216, 215, 215);
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -0.75rem;
 }

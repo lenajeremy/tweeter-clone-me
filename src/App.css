@@ -8,7 +8,7 @@ body{
 }
 a:not(.active), 
 a:not(.main){
-  color: #707070!important;
+  color: rgb(141, 141, 141)!important;
 }
 a{
   transition: color 0.3s ease;
@@ -16,6 +16,9 @@ a{
 a.main, a.active{
   color: #2f80ed !important;
   font-weight: bolder;
+}
+.w-55{
+  width:55%!important;
 }
 .centered{
   display:flex;
@@ -33,7 +36,7 @@ a.main, a.active{
   background: url(bg.jpg) center;
   background-size: cover;
   width: 100%;
-  height: 36vh;
+  height:250px;
 }
 .faded{
   color: rgb(141, 141, 141);
@@ -43,3 +46,21 @@ button svg{
   height: 0.8em!important;
   margin-right: 4px;
 }
+
+
+/* Dark mode styles */
+/* body{
+  background: black;
+  color: white;
+}
+textarea{
+  background: black;
+  color: white;
+}
+.profile__details{
+  background: black!important;
+  color: white;
+}
+.MuiButton-root:not(.active){
+  color: white;
+} */
