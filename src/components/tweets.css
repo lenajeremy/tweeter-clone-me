@@ -101,3 +101,15 @@ background-position: center;
   transform: translateX(-50%);
   bottom: -0.75rem;
 }
+.comment__form textarea{
+  border: none;
+  outline: none;
+  height: 30px;
+  width: 80%;
+}
+.comment__form{
+  border: 1px solid rgb(216, 215, 215);
+  margin-top: 10px;
+  border-radius: 9px;
+  padding: 6px;
+}

@@ -1,7 +1,20 @@
 import React from 'react';
-import {Refresh, ModeCommentOutlined, BookmarkBorderOutlined, FavoriteBorderOutlined} from '@material-ui/icons';
+import {Refresh, ModeCommentOutlined, BookmarkBorderOutlined, FavoriteBorderOutlined, Image} from '@material-ui/icons';
 import {Button} from '@material-ui/core';
 import './tweets.css';
+
+const CommentForm = props => {
+  const [text, setText] = React.useState('');
+  const [image, setImage] = React.useState(null);
+
+  return (
+    <div className = 'comment__form d-flex justify-content-between align-items-center'>
+      <div className = 'profile__image'></div>
+      <textarea className = 'faded' value = {text} onChange = {e => setText(e.target.value)} placeholder = "Tweet a reply"/>
+      <Button variant = 'text' className = 'faded'><Image className = 'faded'/></Button>
+    </div>
+  )
+}
 
 const Tweet =({tweet}) => {
   const [liked, setLiked] = React.useState(tweet.isLiked);
@@ -56,8 +69,10 @@ const Tweet =({tweet}) => {
             </Button>
           </div>
         </div>
+        <CommentForm/>
       </div>
     </React.Fragment>
   )
 }
+
 export default Tweet;

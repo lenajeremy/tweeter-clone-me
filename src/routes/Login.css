@@ -1,0 +1,12 @@
+.loginForm, 
+.registrationForm{
+	width: 30%;
+	margin: auto;
+	padding: 20px;
+	margin-top: 5%;
+}
+.loginForm input,
+.registrationForm input{
+	display: block;
+	margin-bottom: 10px;
+}

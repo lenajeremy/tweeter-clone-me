@@ -7,6 +7,9 @@ import post3 from '../postimages/6.png';
 import post4 from '../postimages/3.jpeg'
 import post5 from '../postimages/12.jpeg'
 import post6 from '../postimages/10.jpeg';
+import macbook from '../postimages/13.jpeg';
+import {useDispatch} from 'react-redux';
+import {setHeaderVisibility} from '../actions';
 
 const SuggestedFollows = props => {
   return (
@@ -86,6 +89,12 @@ const Home = (props) =>{
   const [tweets, setTweets] = React.useState(
     [
       {
+        content: "I've got Jesus in my life... <b>Higher higher higher</b>, we are moving everyday... Nothing can stop me cause no matter what I face... We are getting bigger everyday... everyday",
+        image: macbook,
+        isLiked: true,
+        isBookmarked: true
+      },
+      {
         content: "For this life, my guy, make sure you enjoy yourself ooo... Because if you die lasan, na 3 months them go take remember you oooo... No go lose guard",
         image: post4,
         isLiked: true,
@@ -121,13 +130,15 @@ const Home = (props) =>{
       type: 'RT', 
       image: post2}
     ]);
+    const dispatch = useDispatch();
+    dispatch(setHeaderVisibility(true));
   return(
     <React.Fragment>
     <div className = 'w-75 mt-2 mx-auto'>
       <div className = 'row'>
         <div className = 'col col-md-8 pl-5'>
           <TweetForm/>
-          {tweets.map(tweet => <Tweet tweet = {tweet}/>)}
+          {tweets.map(tweet => <Tweet tweet = {tweet} key = {tweet.content}/>)}
         </div>
         <div className = 'col col-md-4'>
           <Trends/>

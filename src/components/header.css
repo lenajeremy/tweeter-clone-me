@@ -29,18 +29,42 @@ header{
 .profile__image{
   width: 35px;
   height: 35px;
-  background: url(../postimages/9.jpeg) center;
+  background: url(../postimages/10.jpeg) center;
   background-size: cover;
   border-radius: 10px;
   margin-right: 10px;
 }
 .profile__menu {
   border-radius: 10px;
-  height: 100px;
+  min-height: 100px;
   position: absolute;
-  right: 2.5rem;
-  width: 13rem;
+  right: 3.5rem;
+  min-width: 10.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #fff;
+  z-index: 1;
+  border: 1px solid rgb(216, 215, 215);
 }
 header > div {
   position: relative;
+}
+.link a{
+  color: #515151 !important;
+  font-size:0.94rem;
+  width: 100%;
+}
+.link{
+  border-radius: 3px;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.link:hover{
+  background: rgb(219, 219, 219);
+}
+/* .profile__menu .link:last-of-type a{
+  color: #dc3545 !important
+} */
+.link svg{
+  margin-right: 10px;
 }

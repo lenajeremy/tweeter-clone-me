@@ -46,21 +46,26 @@ button svg{
   height: 0.8em!important;
   margin-right: 4px;
 }
-
+textarea{
+  resize: none;
+}
 
 /* Dark mode styles */
-/* body{
-  background: black;
+/*body{
+  background: rgb(40, 40, 40);
   color: white;
 }
 textarea{
-  background: black;
+  background: rgb(40, 40, 40);
   color: white;
 }
 .profile__details{
-  background: black!important;
+  background: rgb(40, 40, 40)!important;
   color: white;
 }
 .MuiButton-root:not(.active){
   color: white;
-} */
+}
+.comment__form, .tweet__form, header, .trends, .following__suggestion{
+  border-color: rgb(59, 59, 59)!important;
+}*/
