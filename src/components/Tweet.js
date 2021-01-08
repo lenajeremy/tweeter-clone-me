@@ -22,6 +22,18 @@ const Tweet =({tweet}) => {
   const [bookmarked, setBookmarked] = React.useState(tweet.isBookmarked);
   const [retweet, setRetweet] = React.useState(tweet.isRetweeted);
 
+Date.prototype.generateAppropriateString  = function (){
+    let date = this
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    let string = '';
+    const generateDay = day => {
+      let endDayChar = day[day.length - 1];
+      return endDayChar === '1' ? endDayChar + 'st' : endDayChar === '2' ? endDayChar + 'nd' : endDayChar === '3' ? endDayChar + 'rd' : endDayChar + 'th';
+    }
+    let day = generateDay(date.getDate().toString())
+    const dayOrNight = date => date >= 12 ? 'PM' : "AM";
+    return day.padStart(2, '0') + ' ' + months[date.getMonth()] + ' on ' + date.getHours()%12 + ':' + date.getMinutes().toString().padStart(2, '0') + dayOrNight(date.getHours());
+  }
   return (
     <React.Fragment>
       <div className = 'tweet p-4 mb-3'>
@@ -34,7 +46,7 @@ const Tweet =({tweet}) => {
           <div className = 'profile__image'></div>
           <div className ='name__time'>
             <p className = 'm-0 font-weight-bold'>Jeremiah Lena</p>
-            <small><p className = 'm-0 faded'>24th March on 10:30AM</p></small>
+            <small><p className = 'm-0 faded'>{new Date(tweet.timeCreated).generateAppropriateString()}</p></small>
           </div>
         </div>
         <p>{tweet.content}</p>

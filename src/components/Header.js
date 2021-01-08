@@ -1,23 +1,26 @@
 import React from 'react';
 import './header.css';
-import logo from '../tweeter.svg';
+import Logo from '../Logo';
 import {Link} from 'react-router-dom';
 import {ArrowDropDown, Group, AccountCircleRounded, ExitToAppRounded, Settings, ArrowDropUp} from '@material-ui/icons';
+import {useSelector} from 'react-redux';
 
 const Header = () => {
   const [menuOpenStatus, setMenuOpenStatus] = React.useState(false);
   const [activeLink, setActiveLink ] = React.useState('Home');
+  const colorPalette = useSelector(store => store.colorPalette);
+
   return(
     <React.Fragment>
     <header>
       <div className = 'container-fluid justify-content-between p-3 centered px-5'>
         <Link to = '/' className = 'logoArea' alt = 'logo'>
-          <img src = {logo} alt = 'tweeter logo'/>
+          <Logo dark = {true}/>
         </Link>
         <ul className = 'header__links list-unstyled justify-content-between centered'>
-          <li><Link className = {`header_link ${activeLink === "Home" ? 'active' : ''}`}  onClick = {e => setActiveLink(e.target.textContent)} to = '/'>Home</Link></li>
-          <li><Link className = {`header_link ${activeLink === "Explore" ? 'active' : ''}`}  onClick = {e => setActiveLink(e.target.textContent)} to = '/explore'>Explore</Link></li>
-          <li><Link className = {`header_link ${activeLink === "Bookmarks" ? 'active' : ''}`}  onClick = {e => setActiveLink(e.target.textContent)} to = '/bookmarks'>Bookmarks</Link></li>
+          <li><Link className = {`header_link ${activeLink === "Home" ? 'active' : ''}`} style = {activeLink === 'Home' ? {color: colorPalette.special} : {color: 'inherit'}} onClick = {e => setActiveLink(e.target.textContent)} to = '/'>Home</Link></li>
+          <li><Link className = {`header_link ${activeLink === "Explore" ? 'active' : ''}`} style = {activeLink === 'Explore' ? {color: colorPalette.special} : {color: 'inherit'}} onClick = {e => setActiveLink(e.target.textContent)} to = '/explore'>Explore</Link></li>
+          <li><Link className = {`header_link ${activeLink === "Bookmarks" ? 'active' : ''}`} style = {activeLink === 'Bookmarks' ? {color: colorPalette.special} : {color: 'inherit'}} onClick = {e => setActiveLink(e.target.textContent)} to = '/bookmarks'>Bookmarks</Link></li>
         </ul>
         <div className = 'centered' onClick = {() => setMenuOpenStatus(!menuOpenStatus)}>
           <div className = 'profile__image'></div>

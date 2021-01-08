@@ -6,15 +6,14 @@
 body{
   font-family: Poppins, sans-serif;
 }
-a:not(.active), 
-a:not(.main){
+header a:not(.active){
   color: rgb(141, 141, 141)!important;
 }
+
 a{
   transition: color 0.3s ease;
 }
 a.main, a.active{
-  color: #2f80ed !important;
   font-weight: bolder;
 }
 .w-55{
@@ -39,7 +38,8 @@ a.main, a.active{
   height:250px;
 }
 .faded{
-  color: rgb(141, 141, 141);
+  /*color: rgb(141, 141, 141);*/
+  opacity: 0.8;
 }
 button svg{
   width: 0.8em!important;
@@ -49,18 +49,26 @@ button svg{
 textarea{
   resize: none;
 }
+.btn{
+  border-color: transparent!important;
+  color: white!important;
+}
+.btn:hover, .btn:focus{
+  opacity: 0.8;
+  border-color: transparent!important;
+}
 
 /* Dark mode styles */
 /*body{
-  background: rgb(40, 40, 40);
+  background: black;
   color: white;
 }
 textarea{
-  background: rgb(40, 40, 40);
+  background: black;
   color: white;
 }
 .profile__details{
-  background: rgb(40, 40, 40)!important;
+  background: black!important;
   color: white;
 }
 .MuiButton-root:not(.active){
@@ -68,4 +76,7 @@ textarea{
 }
 .comment__form, .tweet__form, header, .trends, .following__suggestion{
   border-color: rgb(59, 59, 59)!important;
+}
+.faded{
+  color: rgb(180, 180, 180);
 }*/

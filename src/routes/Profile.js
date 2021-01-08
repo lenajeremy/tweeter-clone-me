@@ -4,6 +4,7 @@ import TweetFilter from '../components/TweetFilter';
 import Tweet from '../components/Tweet';
 import post1 from '../postimages/4.jpeg';
 import post2 from '../postimages/5.jpeg';
+import {useSelector} from 'react-redux';
 
 const Profile = props => {
   const [tweets, setTweets] = React.useState(
@@ -18,6 +19,7 @@ const Profile = props => {
       type: 'RT', 
       image: post2}
     ]);
+  const colorPalette = useSelector(store => store.colorPalette);
 
   return (
     <React.Fragment>

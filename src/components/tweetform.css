@@ -12,9 +12,9 @@
 .tweet__form textarea{
   border: none;
   height: 60px;
+  outline: none;
 }
 .tweet__create__actions{
-  color: #2f80ed;
   align-items: center;
   font-weight: bolder;
 }

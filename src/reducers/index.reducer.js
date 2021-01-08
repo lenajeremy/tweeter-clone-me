@@ -9,7 +9,18 @@ const headerVisibility = function(state = true, action){
             return state;
     }
 }
+const changeColor = function (state = {special: '#2f80ed', background: '#ffffff', text: '#333333'}, action){
+	switch (action.type){
+		case 'colorChange':
+			console.log(action)
+			return {...state, [action.payload.key]: action.payload.value}
+		default:
+			return state;
+	}
+}
+
 const combinedReducers = combineReducers({
+	colorPalette: changeColor,
     user: userReducer,
     headerVisible: headerVisibility
 })

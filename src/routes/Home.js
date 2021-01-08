@@ -8,10 +8,11 @@ import post4 from '../postimages/3.jpeg'
 import post5 from '../postimages/12.jpeg'
 import post6 from '../postimages/10.jpeg';
 import macbook from '../postimages/13.jpeg';
-import {useDispatch} from 'react-redux';
-import {setHeaderVisibility} from '../actions';
+import {useDispatch, useSelector} from 'react-redux';
+import {setHeaderVisibility, colorChange} from '../actions';
 
 const SuggestedFollows = props => {
+  const colorPalette = useSelector(store => store.colorPalette);
   return (
     <React.Fragment>
     <p className = 'emphasis small'>Who to Follow?</p>
@@ -25,7 +26,7 @@ const SuggestedFollows = props => {
             <div className = 'faded small'>20K Followers</div>
           </div>
           </div>
-          <button className = 'btn btn-sm btn-primary'>Follow</button>
+          <button className = 'btn btn-sm' style = {{background: colorPalette.special}}>Follow</button>
         </div>
       </div>
       <div className = 'suggestion mb-4'>
@@ -37,7 +38,7 @@ const SuggestedFollows = props => {
             <div className = 'faded small'>1.4K Followers</div>
           </div>
           </div>
-          <button className = 'btn btn-sm btn-primary'>Follow</button>
+          <button className = 'btn btn-sm' style = {{background: colorPalette.special}}>Follow</button>
         </div>
       </div>
       <div className = 'suggestion last'>
@@ -49,7 +50,7 @@ const SuggestedFollows = props => {
             <div className = 'faded small'>2.7K Followers</div>
           </div>
           </div>
-          <button className = 'btn btn-sm btn-primary'>Follow</button>
+          <button className = 'btn btn-sm' style = {{background: colorPalette.special}}>Follow</button>
         </div>
       </div>
     </div>
@@ -86,61 +87,29 @@ const Trends = props => {
   )
 }
 const Home = (props) =>{
-  const [tweets, setTweets] = React.useState(
-    [
-      {
-        content: "I've got Jesus in my life... <b>Higher higher higher</b>, we are moving everyday... Nothing can stop me cause no matter what I face... We are getting bigger everyday... everyday",
-        image: macbook,
-        isLiked: true,
-        isBookmarked: true
-      },
-      {
-        content: "For this life, my guy, make sure you enjoy yourself ooo... Because if you die lasan, na 3 months them go take remember you oooo... No go lose guard",
-        image: post4,
-        isLiked: true,
-        isRetweeted: true,
-        isBookmarked: true
-      },
-      {
-        content: "Lord, we lift up your name... With out hearts full of praise... Be exalted Oh Lord, my God... Hosanna in the Highest",
-        image: post6,
-        isRetweeted: true,
-        isBookmarked: true
-      },
-      {
-        content: "Dont forget to talk to your father every morning... because He is the master of the universe and He has everything in His hands",
-        image: post5,
-        isRetweeted: true,
-        isCommented: true
-      },
-      {
-        content: "The Year has ended🌈🌈. What are your plans for the new year? Something good is coming in this new year.",
-        image: post3,
-        isLiked: true,
-        isRetweeted: true
-      },
-      {
-      content: 'Travelling - it leaves you speechless, then turns you into a storyteller.', 
-      type: 'RT', 
-      image: post1
-    }, {
-      content: 'cool stuff going on'
-    }, {
-      content: 'For you are a new creature... Old things have passed away. BEHOLD!!! All things are becoming new!!🌍🌏', 
-      type: 'RT', 
-      image: post2}
-    ]);
-    const dispatch = useDispatch();
-    dispatch(setHeaderVisibility(true));
+  const dispatch = useDispatch();
+  const [tweets, setTweets] = React.useState([]);
+  const colorPalette = useSelector(store => store.colorPalette);
+  dispatch(setHeaderVisibility(true));
+
   return(
     <React.Fragment>
     <div className = 'w-75 mt-2 mx-auto'>
       <div className = 'row'>
-        <div className = 'col col-md-8 pl-5'>
-          <TweetForm/>
+        <div className = 'col-12 col-md-8 pl-5'>
+          <TweetForm setTweets = {setTweets} images = {[post1, post2, post3, post4, post5, post6, macbook]}/>
           {tweets.map(tweet => <Tweet tweet = {tweet} key = {tweet.content}/>)}
         </div>
-        <div className = 'col col-md-4'>
+        <div className = 'col-12 col-md-4'>
+        <label for = '#special_color_gear'>Change Special Color
+          <input id = 'special_color_gear' type = 'color' onChange = {e => dispatch(colorChange('special', e.target.value))} value = {colorPalette.special}/>
+        </label>
+        <label for = '#background_color_gear'>Change Background Color
+          <input id = 'background_color_gear' type = 'color' onChange = {e => dispatch(colorChange('background', e.target.value))} value = {colorPalette.background}/>
+        </label>
+        <label for = '#text_color_gear'>Change Text Color
+          <input id = 'text_color_gear' type = 'color' onChange = {e => dispatch(colorChange('text', e.target.value))} value = {colorPalette.text}/>
+        </label>
           <Trends/>
           <SuggestedFollows/>
         </div>

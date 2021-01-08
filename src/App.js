@@ -11,8 +11,12 @@ import {useSelector} from 'react-redux';
 
 function App() {
   const headerVisible = useSelector(store => store.headerVisible);
+  const colorPalette = useSelector(store => store.colorPalette);
+  React.useEffect(()=> {
+    document.querySelector('html').style.background = colorPalette.background;
+  }, [colorPalette])
   return (
-    <div className="App">
+    <div className="App" style = {{backgroundColor: colorPalette.background, color: colorPalette.text}}>
       {headerVisible && <Header/>}
       <Route exact path = '/' component = {Home}/>
       <Route path = '/profile' component = {Profile}/>

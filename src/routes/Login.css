@@ -3,10 +3,20 @@
 	width: 30%;
 	margin: auto;
 	padding: 20px;
-	margin-top: 5%;
+	margin-top: 8%;
 }
 .loginForm input,
 .registrationForm input{
 	display: block;
 	margin-bottom: 10px;
+}
+.loginForm{
+	margin-top: 12%;
+}
+
+@media screen and (max-width: 500px){
+	.loginForm, .registrationForm{
+		margin-top: 30%;
+		width: 90%;
+	}
 }

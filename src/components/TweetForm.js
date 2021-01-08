@@ -4,25 +4,46 @@ import PublicIcon from '@material-ui/icons/Public';
 import ImageIcon from '@material-ui/icons/Image';
 import PeopleIcon from '@material-ui/icons/People';
 import {Link} from 'react-router-dom';
+import firebase from '../firebase';
+import {useSelector} from 'react-redux';
 
-const TweetForm = () =>{
+const TweetForm = ({setTweets, images}) =>{
+  const user = useSelector(store => store.user);
   const [textContent, setTextContent] = React.useState('');
   const [image, setImage] = React.useState(null);
   const [publicity, setPublicity ] = React.useState(true);
   const [menuBarVisible, setMenuBarVisible] = React.useState(false);
+  const [posting, setPosting] = React.useState(false);
+  const palette = useSelector(store => store.colorPalette);
 
-  React.useEffect(() => {
-    console.log(image);
-  },[image])
+  const handleFormSubmission = e => {
+    let devmode = true; // change this when setting to production
+    e.preventDefault();
+
+    //structure the tweet details
+    const tweet = {content: textContent, image: devmode ? images[Math.floor(Math.random() * images.length)] : image, public: publicity, likes: 0, saves: 0, retweets: 0, comments: [], id: 0, timeCreated: Date.now()}
+
+    // if there is an image, post the tweet image to the database, and then get the url for the image
+
+
+
+    //then make a request to the firestore and save the tweet alongside the url for the image
+
+
+
+    //after getting the response, set update the necessary thihngs
+    setTweets(tweets => [tweet, ...tweets]);
+    setTextContent('');
+  }
 
   return(
     <div className = 'tweet_section my-4'>
       <p className = 'emphasis small'>Tweet Something</p>
-      <form action = 'things' className = 'tweet__form p-3 d-flex'>
+      <form action = 'things' className = 'tweet__form p-3 d-flex' onSubmit = {handleFormSubmission}>
         <div className = 'profile__image'></div>
         <div className = 'others w-100'>
-          <textarea className = 'mb-3 w-100' value = {textContent} onChange = {e=>setTextContent(e.target.value)} placeholder = {'What\'s Happening'}/>
-          <div className = 'tweet__create__actions small d-flex justify-content-between'>
+          <textarea className = 'mb-3 w-100' value = {textContent} onChange = {e=>setTextContent(e.target.value)} placeholder = {'What\'s Happening'} style = {{background: palette.background, color: palette.text}}/>
+          <div className = 'tweet__create__actions small d-flex justify-content-between' style = {{color: palette.special}}>
             <div className = 'd-flex'>
               <div className = 'image mr-3'>
                 <ImageIcon/>
@@ -43,7 +64,8 @@ const TweetForm = () =>{
                   </div>
                 </div>}
             </div>
-            <button className = 'btn btn-primary btn-sm'>Tweet</button>
+            <button style = {{background: palette.special}} disabled = {!textContent || textContent.length > 200} className = 'btn btn-sm'>Tweet</button>
+            {textContent.length}
           </div>
         </div>
       </form>
