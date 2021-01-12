@@ -89,7 +89,6 @@ const Trends = props => {
 const Home = (props) =>{
   const dispatch = useDispatch();
   const [tweets, setTweets] = React.useState([]);
-  const colorPalette = useSelector(store => store.colorPalette);
   dispatch(setHeaderVisibility(true));
 
   return(
@@ -101,15 +100,6 @@ const Home = (props) =>{
           {tweets.map(tweet => <Tweet tweet = {tweet} key = {tweet.content}/>)}
         </div>
         <div className = 'col-12 col-md-4'>
-        <label for = '#special_color_gear'>Change Special Color
-          <input id = 'special_color_gear' type = 'color' onChange = {e => dispatch(colorChange('special', e.target.value))} value = {colorPalette.special}/>
-        </label>
-        <label for = '#background_color_gear'>Change Background Color
-          <input id = 'background_color_gear' type = 'color' onChange = {e => dispatch(colorChange('background', e.target.value))} value = {colorPalette.background}/>
-        </label>
-        <label for = '#text_color_gear'>Change Text Color
-          <input id = 'text_color_gear' type = 'color' onChange = {e => dispatch(colorChange('text', e.target.value))} value = {colorPalette.text}/>
-        </label>
           <Trends/>
           <SuggestedFollows/>
         </div>

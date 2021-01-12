@@ -36,6 +36,17 @@ const TweetForm = ({setTweets, images}) =>{
     setTextContent('');
   }
 
+  React.useEffect(() => {
+    document.querySelector('.textarea').addEventListener('input', e => {
+      if(e.data === null) setTextContent(textContent => textContent + '\n');
+      else setTextContent(textContent => textContent + e.data);
+    })
+  },[])
+  React.useEffect(() => {
+    console.log(textContent);
+  },[textContent])
+
+
   return(
     <div className = 'tweet_section my-4'>
       <p className = 'emphasis small'>Tweet Something</p>
@@ -43,6 +54,7 @@ const TweetForm = ({setTweets, images}) =>{
         <div className = 'profile__image'></div>
         <div className = 'others w-100'>
           <textarea className = 'mb-3 w-100' value = {textContent} onChange = {e=>setTextContent(e.target.value)} placeholder = {'What\'s Happening'} style = {{background: palette.background, color: palette.text}}/>
+          <div className = 'textarea mb-3 w-100' contentEditable = 'true'></div>
           <div className = 'tweet__create__actions small d-flex justify-content-between' style = {{color: palette.special}}>
             <div className = 'd-flex'>
               <div className = 'image mr-3'>
@@ -72,4 +84,6 @@ const TweetForm = ({setTweets, images}) =>{
     </div>
   )
 }
+
+
 export default TweetForm;

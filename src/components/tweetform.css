@@ -9,11 +9,16 @@
   height: 40px;
   margin-top: -6px;
 }
-.tweet__form textarea{
+.tweet__form textarea,
+.tweet__form .textarea{
   border: none;
   height: 60px;
   outline: none;
 }
+/* .tweet__form textarea{
+  position: absolute;
+  opacity: 0;
+} */
 .tweet__create__actions{
   align-items: center;
   font-weight: bolder;

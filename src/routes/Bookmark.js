@@ -1,10 +1,15 @@
 import React from 'react';
 import TweetFilter from '../components/TweetFilter';
+import {useDispatch,useSelector} from 'react-redux';
 import Tweet from '../components/Tweet';
 import post1 from '../postimages/4.jpeg';
 import post2 from '../postimages/5.jpeg';
+import {colorChange} from '../actions';
+
 
 const Bookmark = props => {
+  const dispatch = useDispatch();
+  const colorPalette = useSelector(store => store.colorPalette);
   const [tweets, setTweets] = React.useState(
     [{
       content: 'Travelling - it leaves you speechless, then turns you into a storyteller.', 
@@ -21,6 +26,15 @@ const Bookmark = props => {
   return (
     <React.Fragment>
     <div  className = 'mt-4'>
+    <label htmlFor = '#special_color_gear'>Change Special Color
+          <input id = 'special_color_gear' type = 'color' onChange = {e => dispatch(colorChange('special', e.target.value))} value = {colorPalette.special}/>
+        </label>
+        <label htmlFor = '#background_color_gear'>Change Background Color
+          <input id = 'background_color_gear' type = 'color' onChange = {e => dispatch(colorChange('background', e.target.value))} value = {colorPalette.background}/>
+        </label>
+        <label htmlFor = '#text_color_gear'>Change Text Color
+          <input id = 'text_color_gear' type = 'color' onChange = {e => dispatch(colorChange('text', e.target.value))} value = {colorPalette.text}/>
+        </label>
       <div className = 'tweets__area d-flex'>
           <TweetFilter/>
         <div className = 'tweets'>
