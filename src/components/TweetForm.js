@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 import React from 'react';
 import './tweetform.css';
 import PublicIcon from '@material-ui/icons/Public';

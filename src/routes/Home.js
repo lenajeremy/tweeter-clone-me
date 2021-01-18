@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 import React from 'react';
 import TweetForm from '../components/TweetForm';
 import Tweet from '../components/Tweet';

@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-extend-native */
 import React from 'react';
 import {Refresh, ModeCommentOutlined, BookmarkBorderOutlined, FavoriteBorderOutlined, Image} from '@material-ui/icons';
 import {Button} from '@material-ui/core';

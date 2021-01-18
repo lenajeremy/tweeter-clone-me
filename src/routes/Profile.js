@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 import React from 'react';
 import UserProfile from '../components/UserProfile';
 import TweetFilter from '../components/TweetFilter';
