@@ -5,9 +5,9 @@ import ImageIcon from '@material-ui/icons/Image';
 import PeopleIcon from '@material-ui/icons/People';
 import {Link} from 'react-router-dom';
 import firebase from '../firebase';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 
-const TweetForm = ({setTweets, images}) =>{
+const TweetForm = ({images}) =>{
   const user = useSelector(store => store.user);
   const [textContent, setTextContent] = React.useState('');
   const [image, setImage] = React.useState(null);
@@ -15,6 +15,7 @@ const TweetForm = ({setTweets, images}) =>{
   const [menuBarVisible, setMenuBarVisible] = React.useState(false);
   const [posting, setPosting] = React.useState(false);
   const palette = useSelector(store => store.colorPalette);
+  const dispatch = useDispatch();
 
   const handleFormSubmission = e => {
     let devmode = true; // change this when setting to production
@@ -30,21 +31,22 @@ const TweetForm = ({setTweets, images}) =>{
     //then make a request to the firestore and save the tweet alongside the url for the image
 
 
-
+    dispatch({type: 'newPost', payload: tweet});
     //after getting the response, set update the necessary thihngs
-    setTweets(tweets => [tweet, ...tweets]);
     setTextContent('');
   }
 
-  React.useEffect(() => {
-    document.querySelector('.textarea').addEventListener('input', e => {
-      if(e.data === null) setTextContent(textContent => textContent + '\n');
-      else setTextContent(textContent => textContent + e.data);
-    })
-  },[])
-  React.useEffect(() => {
-    console.log(textContent);
-  },[textContent])
+  // React.useEffect(() => {
+  //   document.querySelector('.textarea').addEventListener('input', e => {
+  //     console.log(e)
+  //     if(e.inputType === 'insertParagraph') setTextContent(textContent => textContent + '\n');
+  //     else if(e.inputType === 'deleteContentBackward') setTextContent(textContent => textContent.slice(0, textContent.length))
+  //     else setTextContent(textContent => textContent + e.data);
+  //   })
+  // },[])
+  // React.useEffect(() => {
+  //   console.log(textContent);
+  // },[textContent])
 
 
   return(
@@ -54,7 +56,7 @@ const TweetForm = ({setTweets, images}) =>{
         <div className = 'profile__image'></div>
         <div className = 'others w-100'>
           <textarea className = 'mb-3 w-100' value = {textContent} onChange = {e=>setTextContent(e.target.value)} placeholder = {'What\'s Happening'} style = {{background: palette.background, color: palette.text}}/>
-          <div className = 'textarea mb-3 w-100' contentEditable = 'true'></div>
+          {/*<div className = 'textarea mb-3 w-100' contentEditable = 'true'></div>*/}
           <div className = 'tweet__create__actions small d-flex justify-content-between' style = {{color: palette.special}}>
             <div className = 'd-flex'>
               <div className = 'image mr-3'>

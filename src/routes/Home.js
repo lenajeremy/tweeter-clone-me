@@ -88,7 +88,7 @@ const Trends = props => {
 }
 const Home = (props) =>{
   const dispatch = useDispatch();
-  const [tweets, setTweets] = React.useState([]);
+  const tweets = useSelector(store => store.posts);
   dispatch(setHeaderVisibility(true));
 
   return(
@@ -96,7 +96,7 @@ const Home = (props) =>{
     <div className = 'w-75 mt-2 mx-auto'>
       <div className = 'row'>
         <div className = 'col-12 col-md-8 pl-5'>
-          <TweetForm setTweets = {setTweets} images = {[post1, post2, post3, post4, post5, post6, macbook]}/>
+          <TweetForm images = {[post1, post2, post3, post4, post5, post6, macbook]}/>
           {tweets.map(tweet => <Tweet tweet = {tweet} key = {tweet.content}/>)}
         </div>
         <div className = 'col-12 col-md-4'>

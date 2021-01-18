@@ -19,10 +19,20 @@ const changeColor = function (state = {special: '#2f80ed', background: '#ffffff'
 	}
 }
 
+const postReducers = function(state = [], action){
+	switch(action.type){
+		case 'newPost':
+			return [action.payload, ...state];
+		default:
+			return state;
+	}
+}
+
 const combinedReducers = combineReducers({
 	colorPalette: changeColor,
     user: userReducer,
-    headerVisible: headerVisibility
+    headerVisible: headerVisibility,
+    posts: postReducers
 })
 
 export default combinedReducers;

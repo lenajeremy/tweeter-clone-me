@@ -37,7 +37,7 @@ Date.prototype.generateAppropriateString  = function (){
     }
     let day = generateDay(date.getDate().toString());
     const dayOrNight = date => date >= 12 ? 'PM' : "AM";
-    return day + ' ' + months[date.getMonth()] + ' on ' + (date.getHours() > 12 ? date.getHours()%12 : date.getHours() + ':' + date.getMinutes().toString().padStart(2, '0') + dayOrNight(date.getHours()));
+    return day + ' ' + months[date.getMonth()] + ' on ' + (date.getHours() > 12 ? date.getHours()%12 : Number(date.getHours()) + ':' + date.getMinutes().toString().padStart(2, '0') + dayOrNight(date.getHours()));
   }
   return (
     <React.Fragment>

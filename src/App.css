@@ -76,10 +76,10 @@ textarea{
 }
 .MuiButton-root:not(.active){
   color: white;
-}
+}*/
 .comment__form, .tweet__form, header, .trends, .following__suggestion{
   border-color: rgb(59, 59, 59)!important;
 }
 .faded{
   color: rgb(180, 180, 180);
-}*/
+}
