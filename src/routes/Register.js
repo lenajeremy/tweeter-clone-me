@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {Link, Redirect } from 'react-router-dom';
-import firebase from '../firebase';
+// import firebase from '../firebase';
 import './Login.css';
 import Logo from '../Logo';
 import {useDispatch, useSelector} from 'react-redux';
@@ -31,25 +31,25 @@ const Register = props =>{
   }
 
   const handleFormSubmission = e =>{
-    e.preventDefault();
-    firebase.auth().createUserWithEmailAndPassword(formDetails.email_address, formDetails.password)
-      .then(({user}) => {
-        setRedirect(true);
-        firebase.firestore().collection("users").add({
-          email: formDetails.email_address,
-          username: formDetails.username,
-          isVerified: false
-        })
-      .then(function(docRef) {
-          console.log("Document written with ID: ", docRef.id);
-      })
-      .catch(function(error) {
-          console.error("Error adding document: ", error);
-      });
-      })
-    .catch(error => {
-      setErrors([error.message])
-    });
+    // e.preventDefault();
+    // firebase.auth().createUserWithEmailAndPassword(formDetails.email_address, formDetails.password)
+    //   .then(({user}) => {
+    //     setRedirect(true);
+    //     firebase.firestore().collection("users").add({
+    //       email: formDetails.email_address,
+    //       username: formDetails.username,
+    //       isVerified: false
+    //     })
+    //   .then(function(docRef) {
+    //       console.log("Document written with ID: ", docRef.id);
+    //   })
+    //   .catch(function(error) {
+    //       console.error("Error adding document: ", error);
+    //   });
+    //   })
+    // .catch(error => {
+    //   setErrors([error.message])
+    // });
   }
 	return(
       <form className = 'registrationForm' onSubmit = {handleFormSubmission}>

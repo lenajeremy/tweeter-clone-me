@@ -1,16 +1,16 @@
-.tweet__form{
+.tweet__form {
   width: 100%;
   border-radius: 15px;
   border: 1px solid rgb(216, 215, 215);
   resize: none;
 }
-.tweet__form .profile__image{
-  width:40px;
+.tweet__form .profile__image {
+  width: 40px;
   height: 40px;
   margin-top: -6px;
 }
 .tweet__form textarea,
-.tweet__form .textarea{
+.tweet__form .textarea {
   border: none;
   height: 60px;
   outline: none;
@@ -19,23 +19,23 @@
   position: absolute;
   opacity: 0;
 } */
-.tweet__create__actions{
+.tweet__create__actions {
   align-items: center;
   font-weight: bolder;
 }
-.tweet__form .profile__menu{
+.tweet__form .profile__menu {
   font-weight: normal;
 }
-.tweet__create__actions *{
+.tweet__create__actions * {
   position: relative;
 }
-.tweet__create__actions > div > div{
+.tweet__create__actions > div > div {
   cursor: pointer;
 }
-.tweet__form .image{
+.tweet__form .image {
   position: relative;
 }
-.tweet__form .image input{
+.tweet__form .image input {
   cursor: pointer;
   position: absolute;
   width: 100%;
@@ -43,8 +43,13 @@
   left: 0;
   opacity: 0;
 }
-.setPublicity{
-width: 240px;
-left: 15%;
-bottom: 0;
+.setPublicity {
+  width: 240px;
+  left: 15%;
+  bottom: 0;
+}
+@media screen and (max-width: 768px) {
+  .tweet__create__actions .small.d-flex {
+    margin-left: -40px;
+  }
 }

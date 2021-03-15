@@ -1,23 +1,23 @@
-header{
+header {
   min-height: 60px;
   border-bottom: 1px solid lightgray;
   overflow: hidden;
 }
-.header__links{
+.header__links {
   width: 30%;
   height: 100%;
   margin: 0;
 }
-.header__links + div{
+.header__links + div {
   cursor: pointer;
 }
-.header_link.active{
+.header_link.active {
   font-size: 1.1rem;
   position: relative;
 }
-.header_link.active::after{
+.header_link.active::after {
   position: absolute;
-  content: '';
+  content: "";
   width: 130%;
   border-radius: 10rem;
   height: 7px;
@@ -26,7 +26,7 @@ header{
   transform: translateX(-50%);
   bottom: -1.55rem;
 }
-.profile__image{
+.profile__image {
   width: 35px;
   height: 35px;
   background: url(../postimages/10.jpeg) center;
@@ -36,35 +36,47 @@ header{
 }
 .profile__menu {
   border-radius: 10px;
-  min-height: 100px;
   position: absolute;
   right: 3.5rem;
   min-width: 10.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   background: #fff;
   z-index: 1;
-  border: 1px solid rgb(216, 215, 215);
 }
 header > div {
   position: relative;
 }
-.link a{
+.link a {
   color: #515151 !important;
-  font-size:0.94rem;
+  font-size: 0.94rem;
   width: 100%;
 }
-.link{
+.link {
   border-radius: 3px;
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.link:hover{
+.link:hover {
   background: rgb(219, 219, 219);
 }
 /* .profile__menu .link:last-of-type a{
   color: #dc3545 !important
 } */
-.link svg{
+.link svg {
   margin-right: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .header__links,
+  .usernameStuff .emphasis {
+    display: none;
+  }
+  .usernameStuff .profile__image {
+    margin: 0;
+  }
+  .profile__menu {
+    right: 1rem;
+    min-width: auto;
+  }
+  .link{
+    font-size: 90%;
+  }
 }
