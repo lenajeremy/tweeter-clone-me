@@ -12,7 +12,7 @@
 .tweet__form textarea,
 .tweet__form .textarea {
   border: none;
-  height: 60px;
+  height: 70px;
   outline: none;
 }
 /* .tweet__form textarea{
@@ -21,7 +21,6 @@
 } */
 .tweet__create__actions {
   align-items: center;
-  font-weight: bolder;
 }
 .tweet__form .profile__menu {
   font-weight: normal;
@@ -46,10 +45,25 @@
 .setPublicity {
   width: 240px;
   left: 15%;
-  bottom: 0;
+}
+.others {
+  flex-direction: column;
+  justify-content: space-between;
 }
 @media screen and (max-width: 768px) {
   .tweet__create__actions .small.d-flex {
     margin-left: -40px;
+  }
+  .setPublicity {
+    font-size: 14px !important;
+    width: 180px;
+    top: 40%;
+  }
+  .setPublicity svg {
+    width: 20px;
+    height: 20px;
+  }
+  .setPublicity .link a {
+    font-size: 14px !important;
   }
 }

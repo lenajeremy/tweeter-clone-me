@@ -9,6 +9,27 @@ const Header = () => {
   const [menuOpenStatus, setMenuOpenStatus] = React.useState(false);
   const [activeLink, setActiveLink] = React.useState('Home');
   const colorPalette = useSelector(store => store.colorPalette);
+  const menu = React.useRef();
+  const headerOpenerRef = React.useRef();
+  const menuOpenStatusRef = React.useRef(menuOpenStatus);
+  
+  const setMenuOpenStatusRef = (value) => {
+    menuOpenStatusRef.current = value;
+    setMenuOpenStatus(value);
+  }
+
+  React.useEffect(()=>{
+    document.body.addEventListener('click', clickOut)
+    return () => document.body.removeEventListener('click', clickOut);
+
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  },[]);
+
+  function clickOut(e){
+    if(e.target === headerOpenerRef.current || headerOpenerRef.current.contains(e.target)){
+      setMenuOpenStatusRef(!menuOpenStatusRef.current)
+    }else setMenuOpenStatusRef(false);
+  }
 
   return (
     <React.Fragment>
@@ -22,7 +43,7 @@ const Header = () => {
             <li><Link className={`header_link ${activeLink === "Explore" ? 'active' : ''}`} style={activeLink === 'Explore' ? { color: colorPalette.special } : { color: 'inherit' }} onClick={e => setActiveLink(e.target.textContent)} to='/explore'>Explore</Link></li>
             <li><Link className={`header_link ${activeLink === "Bookmarks" ? 'active' : ''}`} style={activeLink === 'Bookmarks' ? { color: colorPalette.special } : { color: 'inherit' }} onClick={e => setActiveLink(e.target.textContent)} to='/bookmarks'>Bookmarks</Link></li>
           </ul>
-          <div className='usernameStuff centered' onClick={() => setMenuOpenStatus(!menuOpenStatus)}>
+          <div ref = {headerOpenerRef} className='usernameStuff centered' onClick={() =>setMenuOpenStatusRef(!menuOpenStatusRef.current)}>
             <div className='profile__image'></div>
             <div className='m-0 emphasis'>Jeremiah Lena</div>
             {!menuOpenStatus ? <ArrowDropDown /> : <ArrowDropUp />}
@@ -30,7 +51,7 @@ const Header = () => {
         </div>
       </header>
       {menuOpenStatus && (
-        <div className='profile__menu p-2'>
+        <div className='profile__menu p-2' ref = {menu}>
           <div className='link p-1'>
             <Link to='/profile'><AccountCircleRounded style = {{color: colorPalette.background}} /><span>My Profile</span></Link>
           </div>

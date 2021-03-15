@@ -20,11 +20,11 @@ header {
   content: "";
   width: 130%;
   border-radius: 10rem;
-  height: 7px;
+  height: 8px;
   background: #2f80ed;
   left: 50%;
   transform: translateX(-50%);
-  bottom: -1.55rem;
+  bottom: -2rem;
 }
 .profile__image {
   width: 35px;
@@ -49,6 +49,8 @@ header > div {
   color: #515151 !important;
   font-size: 0.94rem;
   width: 100%;
+  display: inline-block;
+  text-decoration: none;
 }
 .link {
   border-radius: 3px;

@@ -27,6 +27,7 @@ const Tweet =({tweet}) => {
   const [bookmarked, setBookmarked] = React.useState(tweet.isBookmarked);
   const [retweet, setRetweet] = React.useState(tweet.isRetweeted);
   const parser = useTweetParser();
+  const colorPalette = useSelector(store => store.colorPalette);
 
 Date.prototype.generateAppropriateString  = function (){
     let date = this
@@ -43,8 +44,8 @@ Date.prototype.generateAppropriateString  = function (){
   }
   return (
     <React.Fragment>
-      <div className = 'tweet p-4 mb-3'>
-        {tweet.type === 'RT' && (
+      <div className = 'tweet p-3 p-lg-4 mb-3'>
+        {tweet.type === 'retweet' && (
           <div className = 'faded small mb-2'>
           <Refresh/> Jeremiah Lena Retweeted*
           </div>
@@ -61,29 +62,29 @@ Date.prototype.generateAppropriateString  = function (){
         <div className = 'tweet__image' style = {{backgroundImage: `url(${tweet.image})`}}>
 
         </div>: ''}
-        <div className = 'faded small ml-auto d-flex justify-content-between w-55 mt-2'>
-          <p>449 Comments</p>
-          <p>41K Retweets</p>
-          <p>234 Saved</p>
+        <div className = 'faded small ml-auto d-flex justify-content-end mt-2'>
+          <p class = 'mr-2'>{tweet.likes} comments</p>
+          <p class = 'mr-2'>{tweet.retweets} retweets</p>
+          <p class = 'mr-0'>{tweet.saves} saved</p>
         </div>
-        <div className = 'tweet__action d-flex px-3 justify-content-around'>
+        <div className = 'tweet__action d-flex px-3 justify-content-around' style = {{color: colorPalette.text}}>
           <div className = 'tweet__comment__link' id = 'comment'>
-            <Button variant = 'text' onClick = {e => setCommented(!commented)} className = {commented && 'active'}>
+            <Button variant = {commented ? 'contained' : 'text'} color = {commented ? 'primary' : 'default'} onClick = {e => setCommented(!commented)}style = {{background: commented && colorPalette.special}}>
             <ModeCommentOutlined/> Comment
             </Button>
           </div>
           <div className = 'tweet__comment__link' id = 'retweet'>
-          <Button variant = 'text' onClick = {e => setRetweet(!retweet)} className = {retweet && 'active'}>
+          <Button variant = {retweet ? 'contained' : 'text'} color = {retweet ? 'primary' : 'default'} onClick = {e => setRetweet(!retweet)} style = {{background: retweet && colorPalette.special}}>
             <Refresh/> {retweet ? 'Retweeted' : 'Retweets'}
             </Button>
           </div>
           <div className = 'tweet__comment__link' id = 'like'>
-          <Button variant = 'text' onClick = {e => setLiked(!liked)} className = {liked && 'active'}>
+          <Button variant = {liked ? 'contained' : 'text'} color = {liked ? 'primary' : 'default'} onClick = {e => setLiked(!liked)} style = {{background: liked && colorPalette.special}}>
             <FavoriteBorderOutlined/>  {liked ? 'Liked' : 'Likes'}
             </Button>
           </div>
           <div className = 'tweet__comment__link' id = 'bookmarked'>
-          <Button variant = 'text' onClick = {e => setBookmarked(!bookmarked)} className = {bookmarked && 'active'}>
+          <Button variant = {bookmarked ? 'contained' : 'text'} color = {bookmarked ? 'primary' : 'default'} onClick = {e => setBookmarked(!bookmarked)} style = {{background: bookmarked && colorPalette.special}}>
             <BookmarkBorderOutlined/> Saved
             </Button>
           </div>

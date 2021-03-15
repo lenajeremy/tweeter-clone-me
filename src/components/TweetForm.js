@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 
-import React from 'react';
+import React, {useRef, useEffect} from 'react';
 import './tweetform.css';
 import PublicIcon from '@material-ui/icons/Public';
 import ImageIcon from '@material-ui/icons/Image';
@@ -18,6 +18,25 @@ const TweetForm = ({ images }) => {
   const [posting, setPosting] = React.useState(false);
   const palette = useSelector(store => store.colorPalette);
   const dispatch = useDispatch();
+  const menuBarVisibleRef = useRef(menuBarVisible);
+  const publicityOpenerRef = useRef();
+
+  function listener(e){
+    setMenuBarVisibleRef(false);
+    console.log(menuBarVisibleRef.current);
+  }
+
+  useEffect(() => {
+    document.body.addEventListener('click', listener);
+    return () => document.body.removeEventListener('click', listener);
+
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  },[]);
+
+  function setMenuBarVisibleRef(value){
+    menuBarVisibleRef.current = value;
+    setMenuBarVisible(value);
+  };
 
   const handleFormSubmission = e => {
     let devmode = true; // change this when setting to production
@@ -41,10 +60,10 @@ const TweetForm = ({ images }) => {
 
   return (
     <div className='tweet_section my-3 my-lg-4'>
-      <p className='emphasis small'>Tweet Something</p>
+      <p className='small'>Tweet Something</p>
       <form action='things' className='tweet__form p-2 p-lg-3 d-flex' onSubmit={handleFormSubmission}>
         <div className='profile__image'></div>
-        <div className='others w-100'>
+        <div className='others w-100 d-flex'>
           <textarea className='mb-3 w-100' value={textContent} onChange={e => setTextContent(e.target.value)} placeholder={'What\'s Happening'} style={{ background: palette.background, color: palette.text }} />
           {/*<div className = 'textarea mb-3 w-100' contentEditable = 'true'></div>*/}
           <div className='tweet__create__actions small d-flex justify-content-between' style={{ color: palette.special }}>
@@ -53,12 +72,12 @@ const TweetForm = ({ images }) => {
                 <ImageIcon />
                 <input type='file' accept='image/*' multiple onChange={e => setImage(e.target.files)} />
               </div>
-              <div className='privacy' onClick={e => setMenuBarVisible(!menuBarVisible)}>{publicity ? <React.Fragment><PublicIcon /> Everyone can reply?</React.Fragment> : <React.Fragment><PeopleIcon /> People you follow</React.Fragment>}</div>
-              {menuBarVisible &&
-                <div className='setPublicity profile__menu p-3'>
-                  <div className='title mb-3'>
-                    <div className='emphasis text-dark '>Who can reply?</div>
-                    <div className='faded small'>Who can reply to this Tweet</div>
+              <div className='privacy' ref = {publicityOpenerRef} onClick={e => setMenuBarVisibleRef(!menuBarVisible)}>{publicity ? <React.Fragment><PublicIcon /> Everyone can reply?</React.Fragment> : <React.Fragment><PeopleIcon /> People you follow</React.Fragment>}</div>
+              {menuBarVisibleRef.current &&
+                <div className='setPublicity profile__menu p-2 p-lg-3'>
+                  <div className='title mb-2'>
+                    <div className='text-dark '>Who can reply?</div>
+                    <div className='faded small'>Who can reply this tweet</div>
                   </div>
                   <div className='link p-1 mb-1'>
                     <Link onClick={e => { setMenuBarVisible(false); setPublicity(true) }}><PublicIcon /><span>Everyone</span></Link>
@@ -68,7 +87,7 @@ const TweetForm = ({ images }) => {
                   </div>
                 </div>}
             </div>
-            <button style={{ background: palette.special }} disabled={!textContent || textContent.length > 200} className='btn btn-sm'>Tweet</button>
+            <button style={{ background: palette.special }} disabled={!textContent || textContent.length > 250} className='btn btn-sm'>Tweet</button>
             {textContent.length}
           </div>
         </div>
