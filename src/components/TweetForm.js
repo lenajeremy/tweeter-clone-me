@@ -60,7 +60,7 @@ const TweetForm = ({ images }) => {
 
   return (
     <div className='tweet_section my-3 my-lg-4'>
-      <p className='small'>Tweet Something</p>
+      <p className='small emphasis'>Tweet Something</p>
       <form action='things' className='tweet__form p-2 p-lg-3 d-flex' onSubmit={handleFormSubmission}>
         <div className='profile__image'></div>
         <div className='others w-100 d-flex'>
@@ -76,7 +76,7 @@ const TweetForm = ({ images }) => {
               {menuBarVisibleRef.current &&
                 <div className='setPublicity profile__menu p-2 p-lg-3'>
                   <div className='title mb-2'>
-                    <div className='text-dark '>Who can reply?</div>
+                    <div className='text-dark emphasis'>Who can reply?</div>
                     <div className='faded small'>Who can reply this tweet</div>
                   </div>
                   <div className='link p-1 mb-1'>

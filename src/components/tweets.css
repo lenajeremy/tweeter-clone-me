@@ -107,3 +107,11 @@ button{
 .MuiButton-root{
   color: inherit!important;
 }
+.btn-text{
+  display: inline;
+}
+@media screen and (max-width: 768px){
+  .btn-text{
+    display: none;
+  }
+}

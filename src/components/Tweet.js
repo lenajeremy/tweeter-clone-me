@@ -70,22 +70,22 @@ Date.prototype.generateAppropriateString  = function (){
         <div className = 'tweet__action d-flex px-3 justify-content-around' style = {{color: colorPalette.text}}>
           <div className = 'tweet__comment__link' id = 'comment'>
             <Button variant = {commented ? 'contained' : 'text'} color = {commented ? 'primary' : 'default'} onClick = {e => setCommented(!commented)}style = {{background: commented && colorPalette.special}}>
-            <ModeCommentOutlined/> Comment
+            <ModeCommentOutlined/> <span class = 'btn-text'>Comment</span>
             </Button>
           </div>
           <div className = 'tweet__comment__link' id = 'retweet'>
           <Button variant = {retweet ? 'contained' : 'text'} color = {retweet ? 'primary' : 'default'} onClick = {e => setRetweet(!retweet)} style = {{background: retweet && colorPalette.special}}>
-            <Refresh/> {retweet ? 'Retweeted' : 'Retweets'}
+            <Refresh/> {retweet ? <span class = 'btn-text'>Retweeted</span> : <span class = 'btn-text'>Retweets</span>}
             </Button>
           </div>
           <div className = 'tweet__comment__link' id = 'like'>
           <Button variant = {liked ? 'contained' : 'text'} color = {liked ? 'primary' : 'default'} onClick = {e => setLiked(!liked)} style = {{background: liked && colorPalette.special}}>
-            <FavoriteBorderOutlined/>  {liked ? 'Liked' : 'Likes'}
+            <FavoriteBorderOutlined/>  {liked ? <span class = 'btn-text'>Liked</span> : <span class = 'btn-text'>Likes</span>}
             </Button>
           </div>
           <div className = 'tweet__comment__link' id = 'bookmarked'>
           <Button variant = {bookmarked ? 'contained' : 'text'} color = {bookmarked ? 'primary' : 'default'} onClick = {e => setBookmarked(!bookmarked)} style = {{background: bookmarked && colorPalette.special}}>
-            <BookmarkBorderOutlined/> Saved
+            <BookmarkBorderOutlined/> {bookmarked ? <span class = 'btn-text'>Saved</span>: <span class = 'btn-text'>Saved</span>}
             </Button>
           </div>
         </div>

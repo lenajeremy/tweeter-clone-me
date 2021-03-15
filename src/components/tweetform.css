@@ -55,7 +55,6 @@
     margin-left: -40px;
   }
   .setPublicity {
-    font-size: 14px !important;
     width: 180px;
     top: 40%;
   }
@@ -63,7 +62,7 @@
     width: 20px;
     height: 20px;
   }
-  .setPublicity .link a {
-    font-size: 14px !important;
+  .w-75{
+    width: 90%!important;
   }
 }
